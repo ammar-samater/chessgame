@@ -8,6 +8,8 @@ package board;
  *
  */
 public class ChessBoard implements GameBoard {
+	
+	private ChessPiece[][] board;
 
 	/* (non-Javadoc)
 	 * @see board.GameBoard#isGameOver()

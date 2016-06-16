@@ -1,6 +1,7 @@
 package ui;
 
 import ai.AI;
+import board.ChessPiece;
 import board.GameBoard;
 import board.GameType;
 import board.Move;
@@ -24,6 +25,7 @@ public class Main {
 	private static AI ai;
 
 	public static void main(String[] args) {
+		
 
 		init();
 
@@ -32,7 +34,7 @@ public class Main {
 				ai.setBoard(board.getCopy());
 				Thread thread = new Thread(ai);
 				thread.start();
-				move = view.getHumanMove(board.getCopy());
+				move = view.getHumanMove();
 				try {
 					thread.join();
 				} catch (InterruptedException e) {
@@ -48,12 +50,14 @@ public class Main {
 		}
 	}
 
-
+	/**
+	 * 
+	 */
 	private static void init() {
 		view = new ConsulView();
 		gameType = view.getGameType();
 		board = GameFactory.getGameBoard(gameType);
-		turn = view.getFirstPlayer(); // if true then human is white
+		turn = view.getFirstPlayer(); 		// if true then human is white
 		ai = AIFactory.getGameAI(gameType, turn);
 	}
 }

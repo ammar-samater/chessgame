@@ -26,7 +26,7 @@ public class ConsulView implements View {
 	 * @see ui.View#getHumanMove(board.GameBoard)
 	 */
 	@Override
-	public Move getHumanMove(GameBoard board) {
+	public Move getHumanMove() {
 		// TODO Auto-generated method stub
 		return null;
 	}

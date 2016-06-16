@@ -3,7 +3,6 @@
  */
 package ui;
 
-import board.GameBoard;
 import board.GameType;
 import board.Move;
 
@@ -13,10 +12,22 @@ import board.Move;
  */
 public interface View {
 
+	/**
+	 * 
+	 * @return
+	 */
 	boolean getFirstPlayer();
 
-	Move getHumanMove(GameBoard board);
+	/**
+	 * 
+	 * @return
+	 */
+	Move getHumanMove();
 
+	/**
+	 * 
+	 * @return
+	 */
 	GameType getGameType();
 
 }
