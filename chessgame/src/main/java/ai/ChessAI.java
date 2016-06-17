@@ -22,16 +22,19 @@ public class ChessAI implements AI {
 
 	}
 
-	@Override
-	public void setBoard(GameBoard copy) {
-		board = copy;
-	}
+
 
 	@Override
 	public Move getAIMove(Move humanMove) {
 		// if human move is null, then AI makes its first move
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void setBoard() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

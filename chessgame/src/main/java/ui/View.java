@@ -30,4 +30,8 @@ public interface View {
 	 */
 	GameType getGameType();
 
+	void displayErrorMessage(String string);
+
+	void announceWinner(String string);
+
 }

@@ -14,6 +14,6 @@ public interface AI extends Runnable{
 
 	Move getAIMove(Move humanMove);
 
-	void setBoard(GameBoard copy);
+	void setBoard();
 
 }

@@ -38,4 +38,16 @@ public class ChessBoard implements GameBoard {
 		return null;
 	}
 
+	@Override
+	public boolean moveIsLegal(Move move) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean moveIsValid(Move move) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

@@ -29,4 +29,8 @@ public interface GameBoard {
 	 */
 	GameBoard getCopy();
 
+	boolean moveIsLegal(Move move);
+
+	boolean moveIsValid(Move move);
+
 }

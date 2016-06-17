@@ -4,6 +4,7 @@
 package factories;
 
 import ai.AI;
+import board.GameBoard;
 import board.GameType;
 
 /**
@@ -12,7 +13,7 @@ import board.GameType;
  */
 public class AIFactory {
 
-	public static AI getGameAI(GameType gameType, boolean turn) {
+	public static AI getGameAI(GameType gameType, boolean turn, GameBoard gameBoard) {
 		// TODO Auto-generated method stub
 		return null;
 	}

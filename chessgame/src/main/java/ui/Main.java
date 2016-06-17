@@ -18,23 +18,36 @@ import factories.GameFactory;
 public class Main {
 
 	private static GameType gameType;
-	private static boolean turn;
+	private static boolean isHumanTurn;
 	private static View view;
 	private static GameBoard board;
-	private static Move move = null;
+	private static Move move;
 	private static AI ai;
-
+	private static boolean moveIsAccepted;
+	
 	public static void main(String[] args) {
 		
 
 		init();
-
+		
+		
 		while (!board.isGameOver()) {
-			if (turn == true) {
-				ai.setBoard(board.getCopy());
+			if (isHumanTurn) {
 				Thread thread = new Thread(ai);
 				thread.start();
-				move = view.getHumanMove();
+				moveIsAccepted = false;
+				while(!moveIsAccepted){
+					move = view.getHumanMove();
+					if(!board.moveIsLegal(move)){
+						view.displayErrorMessage("move is not legal!");
+					}else{
+						if(!board.moveIsValid(move)){
+							view.displayErrorMessage("move is not valid!");
+						}else{
+							moveIsAccepted = true;
+						}
+					}
+				}
 				try {
 					thread.join();
 				} catch (InterruptedException e) {
@@ -46,7 +59,13 @@ public class Main {
 			}
 
 			board.makeMove(move);
-			turn = !turn;
+			isHumanTurn = !isHumanTurn;
+		}
+		
+		if(isHumanTurn){
+			view.announceWinner("You Lose");
+		}else{
+			view.announceWinner("You Win");
 		}
 	}
 
@@ -57,8 +76,8 @@ public class Main {
 		view = new ConsulView();
 		gameType = view.getGameType();
 		board = GameFactory.getGameBoard(gameType);
-		turn = view.getFirstPlayer(); 		// if true then human is white
-		ai = AIFactory.getGameAI(gameType, turn);
+		isHumanTurn = view.getFirstPlayer(); 		// if true then human is white
+		ai = AIFactory.getGameAI(gameType, isHumanTurn, board.getCopy());
 	}
 }
 
