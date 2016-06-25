@@ -3,6 +3,7 @@
  */
 package ui;
 
+import board.GameBoard;
 import board.GameType;
 import board.Move;
 
@@ -33,5 +34,7 @@ public interface View {
 	void displayErrorMessage(String string);
 
 	void announceWinner(String string);
+
+	void displayBoard(GameBoard board);
 
 }

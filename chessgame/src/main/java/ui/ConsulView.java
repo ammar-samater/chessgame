@@ -72,4 +72,9 @@ public class ConsulView implements View {
 		
 	}
 
+	@Override
+	public void displayBoard(GameBoard board) {
+		System.out.println(board);
+	}
+
 }

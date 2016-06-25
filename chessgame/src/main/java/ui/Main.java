@@ -1,7 +1,6 @@
 package ui;
 
 import ai.AI;
-import board.ChessPiece;
 import board.GameBoard;
 import board.GameType;
 import board.Move;
@@ -26,12 +25,13 @@ public class Main {
 	private static boolean moveIsAccepted;
 	
 	public static void main(String[] args) {
-		
+	
 
 		init();
 		
 		
 		while (!board.isGameOver()) {
+			view.displayBoard(board);
 			if (isHumanTurn) {
 				Thread thread = new Thread(ai);
 				thread.start();
